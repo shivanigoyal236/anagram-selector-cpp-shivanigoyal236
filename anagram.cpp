@@ -23,6 +23,8 @@ bool Anagram::WordPairIsAnagram(const std::string& word1, const std::string& wor
       l2=s2.length();
       if(l1!=l2)
       return false;
+      else
+      {
         int sum=0;
         for(int i=0;i<s2.length();i++)
         {
@@ -30,7 +32,7 @@ bool Anagram::WordPairIsAnagram(const std::string& word1, const std::string& wor
 
         }
         if(sum==0)
-        return true;
+        return true;}
         
     return false;
 }
