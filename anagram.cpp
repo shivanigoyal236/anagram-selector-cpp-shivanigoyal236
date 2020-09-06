@@ -16,6 +16,7 @@ std::string removespace(const std::string& s1)
 bool Anagram::WordPairIsAnagram(const std::string& word1, const std::string& word2) {
     //Fill the correct implementation here
       int l1,l2;
+      int sum=0;
          std::string s1,s2;
          s1=removespace(word1);
          s2=removespace(word2);
@@ -23,16 +24,16 @@ bool Anagram::WordPairIsAnagram(const std::string& word1, const std::string& wor
       l2=s2.length();
       if(l1==l2)
     {
-        int sum=0;
+        
         for(int i=0;i<s2.length();i++)
         {
             sum^=s1[i]^s2[i];
 
         }
+    }
         if(sum==0)
-        return true;}
-        
-    return false;
+        return true;
+        return false;
 }
 
 std::vector<std::string> Anagram::SelectAnagrams(
