@@ -12,25 +12,26 @@ std::string removespace(const std::string& s1)
          transform(s.begin(),s.end(),s.begin(),::tolower);
      return s;
 }
-
+int isana(std::string s1,std::string s2)
+{ 
+    int sum=0;
+ for(int i=0;i<s2.length();i++)
+        {
+            sum^=s1[i]^s2[i];
+        }
+        return sum;
+}
 bool Anagram::WordPairIsAnagram(const std::string& word1, const std::string& word2) {
     //Fill the correct implementation here
       int l1,l2;
-      int sum=0;
+      int sum;
          std::string s1,s2;
          s1=removespace(word1);
          s2=removespace(word2);
          l1=s1.length();
       l2=s2.length();
       if(l1==l2)
-    {
-        
-        for(int i=0;i<s2.length();i++)
-        {
-            sum^=s1[i]^s2[i];
-
-        }
-    }
+       sum=isana(s1,s2);
         if(sum==0)
         return true;
         return false;
