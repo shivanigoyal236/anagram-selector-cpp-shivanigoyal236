@@ -24,7 +24,7 @@ int isana(std::string s1,std::string s2)
 bool Anagram::WordPairIsAnagram(const std::string& word1, const std::string& word2) {
     //Fill the correct implementation here
       int l1,l2;
-      int sum;
+      int sum=1;
          std::string s1,s2;
          s1=removespace(word1);
          s2=removespace(word2);
