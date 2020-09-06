@@ -9,21 +9,20 @@ std::string removespace(const std::string& s1)
             if(s1[i]!=' ')
             s+=s1[i];
         }
+         transform(s.begin(),s.end(),s.begin(),::tolower);
      return s;
 }
 
 bool Anagram::WordPairIsAnagram(const std::string& word1, const std::string& word2) {
     //Fill the correct implementation here
       int l1,l2;
-      l1=word1.length();
-      l2=word2.length();
-      if(l1!=l2)
-      return false;
          std::string s1,s2;
          s1=removespace(word1);
          s2=removespace(word2);
-         transform(s1.begin(),s1.end(),s1.begin(),::tolower);
-         transform(s2.begin(),s2.end(),s2.begin(),::tolower);
+         l1=s1.length();
+      l2=s2.length();
+      if(l1!=l2)
+      return false;
         int sum=0;
         for(int i=0;i<s2.length();i++)
         {
