@@ -21,10 +21,8 @@ bool Anagram::WordPairIsAnagram(const std::string& word1, const std::string& wor
          s2=removespace(word2);
          l1=s1.length();
       l2=s2.length();
-      if(l1!=l2)
-      return false;
-      else
-      {
+      if(l1==l2)
+    {
         int sum=0;
         for(int i=0;i<s2.length();i++)
         {
