@@ -1,24 +1,35 @@
-#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
+#define CATCH_CONFIG_MAIN
 
+#include<bits/stdc++.h>
 #include "catch.hpp"
-#include "anagram.h"
+#include "receiver.h"
+using namespace std;
 
-TEST_CASE("recognizes shuffled alphabets as anagrams") {
-    REQUIRE(Anagram::WordPairIsAnagram("restful", "fluster") == true);
-    REQUIRE(Anagram::WordPairIsAnagram("forty five", "over fifty") == true);
+CheckValues check;
+string tempreature="tempreature",humidity=humidity;
+TEST_CASE("raise error and warning when tempreature is greater than alert level")
+{   
+    REQUIRE(check.checkforhighvalues(42,tempreature,40,37)=("ALERT!! tempreature is very high"));
+    REQUIRE(check.checkforhighvalues(42,tempreature,40,37)=("ALERT!! tempreature is high"));
+    
 }
-
-TEST_CASE("reports non-anagrams") {
-    REQUIRE(Anagram::WordPairIsAnagram("something", "else") == false);
+TEST_CASE("raise error and warning when tempreature is lower than alert level")
+{
+     REQUIRE(check.checkforlowvalues(-0.92,tempreature,0,4)=("ALERT!! tempreature is very low"));
+     REQUIRE(check.checkforlowvalues(2,tempreature,0,4)=("WARNING!! tempreature is low"));
 }
-
-TEST_CASE("recognizes anagrams when there are case- and space- differences") {
-    REQUIRE(Anagram::WordPairIsAnagram("New York Times", "monkeys write")
-        == true);
+TEST_CASE("raise error and warning when humidity is greater than alert level")
+{
+    REQUIRE(check.checkforhighvalues(93,humidity,90,70)=("ALERT!! humidity is very high"));
+    REQUIRE(check.checkforhighvalues(73,humidity,90,70)=("ALERT!! humidity is high"));
 }
-
-TEST_CASE("selects anagrams of a word") {
-    auto selection = Anagram::SelectAnagrams("master",
-        {"stream", "something", "maters"});
-    REQUIRE(selection == std::vector<std::string>{"stream", "maters"});
+TEST_CASE("Do nothing when tempreature is in normal conditions")
+{      
+    REQUIRE(check.CheckValuesForAlert(5,tempreature,40,37,0,4)=="");
+    REQUIRE(check.CheckValuesForAlert(34,tempreature,40,37,0,4)=="");
+}
+TEST_CASE("Do nothing when humidity is in normal conditions")
+{
+    REQUIRE(check.CheckValuesForAlert(7,humidity,90,70,0,0)="");
+    REQUIRE(check.CheckValuesForAlert(34,humidity,90,70,0,0)="");
 }
