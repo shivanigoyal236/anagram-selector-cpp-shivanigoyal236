@@ -17,7 +17,7 @@ jobs:
       with:
         nuget-api-key: ${{ secrets.NuGetAPIKey }}
         nuget-version: '5.x'
-    - run: nuget restore SyncDevices.sln
+    - run: nuget restore patient-monitors.sln
       
     - name: MSBuild
       working-directory: patient-monitors
