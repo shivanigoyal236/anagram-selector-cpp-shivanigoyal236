@@ -13,6 +13,11 @@ jobs:
       uses: microsoft/setup-msbuild@v1.0.1
       with:
         vs-version: 15.0
+    - uses: nuget/setup-nuget@v1
+      with:
+        nuget-api-key: ${{ secrets.NuGetAPIKey }}
+        nuget-version: '5.x'
+    - run: nuget restore SyncDevices.sln
       
     - name: MSBuild
       working-directory: patient-monitors
