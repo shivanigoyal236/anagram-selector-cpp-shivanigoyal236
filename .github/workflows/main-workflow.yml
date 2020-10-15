@@ -1,20 +1,29 @@
 name: Build and Run
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push, pull_request]
 
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@v2
-    - name: build
-      run: g++ -Wall -Wextra -o testchecker *.cpp
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.1
+      with:
+        vs-version: 19.0
       
-    - name: run
-      run: ./testchecker
+    - name: MSBuild
+      working-directory: patient-monitors
+      run: msbuild patient-monitors.sln /p:OutDir="build_output"
+    
+    - name: Add paho.mqtt.c client library
+      run: git clone https://github.com/eclipse/paho.mqtt.python.git
+           cd paho.mqtt.c
+           maje -j
+           sudo make install
+    
+    - name: Install Mosquitto
+      run : git clone https://github.com/eclipse/mosquitto
+   
