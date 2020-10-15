@@ -12,7 +12,7 @@ jobs:
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.1
       with:
-        vs-version: 19.0
+        vs-version: 15.0
       
     - name: MSBuild
       working-directory: patient-monitors
